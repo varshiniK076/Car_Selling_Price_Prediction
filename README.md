@@ -18,9 +18,28 @@ and outputs the **estimated selling price** in Indian Rupees(Lakhs).
 This project demonstrates **data preprocessing, feature engineering, model training, and deployment** using Python, Pandas, Scikit-learn, and Flask.
 
 ---
-## **Folder Structure**
+## 📊 Dataset Description
+The dataset contains historical car sale information with the following features:
+
+| Feature        | Description                                  |
+|----------------|----------------------------------------------|
+| Car_Name       | Name of the car                              |
+| Year           | Manufacturing year                           |
+| Present_Price  | Current showroom price (in lakhs)            |
+| Kms_Driven     | Total kilometers driven                      |
+| Fuel_Type      | Petrol / Diesel / CNG                        |
+| Seller_Type    | Individual / Dealer                          |
+| Transmission   | Manual / Automatic                           |
+| Owner          | Number of previous owners                    |
+| Selling_Price  | Target variable                              |
+
+---
+## ⚙️ Project Structure
+
+```text
 CarPricePrediction/
 │
+├─ car_price.csv
 ├─ app.py
 ├─ main.py
 ├─ handling_missing_values.py
@@ -42,10 +61,10 @@ CarPricePrediction/
 │   └─ style.css
 │
 └─ README.md
+```
+---
 
-
-
-## **ML - Pipeline**
+## **🔄 ML - Pipeline**
 
 Before training the model, the raw dataset goes through feature engineering,feature selection and scaling steps to ensure the data is clean, numeric, and suitable for modeling. The pipeline is structured as follows:
 
@@ -101,18 +120,62 @@ Before training the model, the raw dataset goes through feature engineering,feat
   - **Root Mean Squared Error (RMSE)**  
   - **Mean Absolute Error (MAE)**
 
-- After training, the model and preprocessing objects (`brand_map`, `global_mean`, and `scaler`) are saved as **.pkl files** for use in the web application.
+- After training, the model and preprocessing objects (`brand_price_map`, `global_mean`, `scaler`, and `linear_regression_model`) are saved as **.pkl files** for use in the web application.
 
 ---
 
-This sequential pipeline ensures that the data flows smoothly from **raw input → clean numeric data → scaled features → model prediction**, providing reliable and accurate selling price estimates.
+## **🧠 Machine Learning Model**
+- Algorithm: Linear Regression
+- Inputs:
+  - Car Name / Brand  
+  - Year of Manufacture  
+  - Present Price  
+  - Kilometers Driven  
+  - Fuel Type (Petrol, Diesel, CNG)  
+  - Seller Type (Dealer / Individual)  
+  - Transmission (Manual / Automatic)  
+  - Owners (0/1) 
+- Target Variable: Selling_Price
+- Model trained on transformed & scaled features
+- Saved for deployment
+
+---
+## **🌐 Web Application Using Flask**
+
+## Backend
+  - Flask framework used
+  - Loads trained model, scaler & encoder
+  - Ensures preprocessing consistency with training pipeline
+## Frontend
+  - Simple HTML form
+  - User inputs car details
+  - Displays predicted selling price
 
 
-## **Install required packages**
-pip install -r requirements.txt
 
-## **Run the Flask app**
-python app.py
+---
+## **📦 Install required packages**
+> ```
+> pip install -r requirements.txt
+> ```
 
-## **Open your browser and navigate to**
-http://127.0.0.1:5000/
+## **🚀 Run the Project**
+> ```
+> python main.py
+> python app.py
+> ```
+---
+### **Open your browser and navigate to**
+> ```
+> http://127.0.0.1:5000/
+> ```
+
+---
+
+## **👤 Author**
+ ```
+ Varadhana Varshini Kolipakula
+ Machine Learning & Data Science Enthusiast
+ ```
+
+---
